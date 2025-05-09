@@ -1,2 +1,1 @@
-# fagprove-template
-Springboot template
+# fagprove-backend
