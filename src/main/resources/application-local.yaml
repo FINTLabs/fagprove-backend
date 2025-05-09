@@ -1,0 +1,29 @@
+fint:
+  security:
+    org-id: false
+    component: false
+  heartbeat:
+    check-rate: 10000
+  kafka:
+    application-id: fagprove-backend
+    enable-ssl: false
+    default-replicas: 1
+  spring:
+    kafka:
+      consumer:
+        group-id: ${fint.kafka.application-id}
+
+spring:
+  jpa:
+    properties:
+      jdbc:
+        lob:
+      enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5436/fagprove-backend
+    username: postgres
+    password: password
+    hikari:
+      schema: public
