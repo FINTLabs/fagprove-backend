@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.fintlabs.fagprovetemplate.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-14T11:25:46.918Z" hostname="Sanders-MacBook-Pro.local" time="0.412">
+  <properties/>
+  <testcase name="contextLoads()" classname="no.fintlabs.fagprovetemplate.ApplicationTests" time="0.412"/>
+  <system-out><![CDATA[13:25:46.164 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [no.fintlabs.fagprovetemplate.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:25:46.209 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration no.fintlabs.fagprovetemplate.Application for test class no.fintlabs.fagprovetemplate.ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-04-14T13:25:46.388+02:00  INFO 16279 --- [fagprove-template] [    Test worker] n.f.fagprovetemplate.ApplicationTests    : Starting ApplicationTests using Java 21.0.1 with PID 16279 (started by sander in /Users/sander/IdeaProjects/fagprove-template)
+2025-04-14T13:25:46.388+02:00  INFO 16279 --- [fagprove-template] [    Test worker] n.f.fagprovetemplate.ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-04-14T13:25:46.913+02:00  INFO 16279 --- [fagprove-template] [    Test worker] n.f.fagprovetemplate.ApplicationTests    : Started ApplicationTests in 0.644 seconds (process running for 1.113)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/sander/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
