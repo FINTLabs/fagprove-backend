@@ -1,3 +1,23 @@
+fint:
+  security:
+    org-id: false
+    component: false
+  heartbeat:
+    check-rate: 10000
+  kafka:
+    application-id: fagprove-backend
+
 spring:
-  application:
-    name: fagprove-backend
+  kafka:
+    consumer:
+      group-id: ${fint.kafka.application-id}
+  profiles:
+    include: db
+
+logging:
+  level:
+    no.fintlabs.kafka: warn
+    org.springframework.kafka: warn
+    org.apache.kafka: warn
+    no.fintlabs.event: debug
+    no.fintlabs.page: info
