@@ -27,4 +27,11 @@ public class ContractService {
         return contractRepository.findAll();
     }
 
+    public AdapterContractEntity getContract(String id) {
+        return contractRepository.findById(id).orElse(null);
+    }
+
+    public boolean exists(String id) {
+        return contractRepository.existsById(id);
+    }
 }
