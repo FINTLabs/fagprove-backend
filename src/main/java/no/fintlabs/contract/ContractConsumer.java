@@ -1,4 +1,4 @@
-package no.fintlabs;
+package no.fintlabs.contract;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +19,14 @@ public class ContractConsumer {
 
     private final EventConsumerFactoryService eventConsumerFactoryService;
     private final ContractRepository contractRepository;
-    private final MappingService mappingService;
+    private final CapabilitesRepository capabilitesRepository;
+    private final ContractService contractService;
 
-    public ContractConsumer(EventConsumerFactoryService eventConsumerFactoryService, ContractRepository contractRepository, MappingService mappingService) {
+    public ContractConsumer(EventConsumerFactoryService eventConsumerFactoryService, ContractRepository contractRepository, CapabilitesRepository capabilitesRepository, MappingService mappingService, ContractService contractService) {
         this.eventConsumerFactoryService = eventConsumerFactoryService;
         this.contractRepository = contractRepository;
-        this.mappingService = mappingService;
+        this.capabilitesRepository = capabilitesRepository;
+        this.contractService = contractService;
     }
 
     @Bean
@@ -45,10 +47,8 @@ public class ContractConsumer {
     }
 
     private void processEvent(ConsumerRecord<String, AdapterContract> consumerRecord) {
-        log.info("Consumer record: {}", consumerRecord.value());
-        AdapterContractEntity mappedToEntity = mappingService.mapToEntity(consumerRecord.value());
-        log.info("Mapped to entity: {}", mappedToEntity.getAdapterId());
-        contractRepository.save(mappedToEntity);
+        log.info("Consumed adapter: {}", consumerRecord.value().getAdapterId());
+        contractService.handleAndSave(consumerRecord.value());
     }
 
 }
