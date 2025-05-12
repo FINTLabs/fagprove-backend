@@ -22,7 +22,6 @@ public class ContractController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AdapterContractEntity> getContract(@PathVariable String id) {
-        log.info("");
         if (contractService.exists(id)) {
             return ResponseEntity.ok(contractService.getContract(id));
         }
