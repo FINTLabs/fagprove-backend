@@ -14,7 +14,7 @@ public class MappingService {
 
     public AdapterContractEntity mapTOEntity(AdapterContract adapterContract) {
         AdapterContractEntity adapterContractEntity = new AdapterContractEntity();
-        adapterContractEntity.setAdapterId(adapterContract.getAdapterId());
+        adapterContractEntity.setAdapterId(adapterContract.getAdapterId().replace("/", "&"));
         adapterContractEntity.setOrgId(adapterContract.getOrgId());
         adapterContractEntity.setUserName(adapterContract.getUsername());
         adapterContractEntity.setTime(adapterContract.getTime());
