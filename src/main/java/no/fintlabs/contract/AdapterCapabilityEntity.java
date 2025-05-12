@@ -1,5 +1,6 @@
-package no.fintlabs;
+package no.fintlabs.contract;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,16 +13,26 @@ public class AdapterCapabilityEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
+    @Column(nullable = true)
     private String domainName;
+
+    @Column(nullable = true)
     private String packageName;
+
+    @Column(nullable = true)
     private String resourceName;
+
+    @Column(nullable = true)
     private int fullSyncIntervalInDays;
+
+    @Column(nullable = true)
     private String deltaSyncInterval;
 
-    @ManyToOne()
-    @JoinColumn(name = "adapter_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "adapter_id", nullable = false)
+    @JsonIgnore
     private AdapterContractEntity adapterContract;
 
 }
