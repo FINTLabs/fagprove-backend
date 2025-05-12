@@ -21,10 +21,10 @@ spec:
     database: fint-core
   env:
     - name: JAVA_TOOL_OPTIONS
-      value: '-XX:+ExitOnOutOfMemoryError -Xmx525M'
+      value: '-XX:+ExitOnOutOfMemoryError -Xmx1.5Gi'
   resources:
     limits:
-      memory: "1Gi"
+      memory: "2Gi"
       cpu: "500m"
     requests:
       memory: "500Mi"
