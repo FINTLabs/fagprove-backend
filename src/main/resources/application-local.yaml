@@ -1,29 +1,26 @@
 fint:
-  security:
-    org-id: false
-    component: false
-  heartbeat:
-    check-rate: 10000
   kafka:
-    application-id: fagprove-backend
-    enable-ssl: false
     default-replicas: 1
-  spring:
-    kafka:
-      consumer:
-        group-id: ${fint.kafka.application-id}
+    application-id: fagprove-backend
 
 spring:
+  kafka:
+    consumer:
+      group-id: fagprove-backend
+
   jpa:
     properties:
-      jdbc:
-        lob:
-      enable_lazy_load_no_trans: true
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+        enable_lazy_load_no_trans: true
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5436/fagprove-backend
+    driver-class-name: org.postgresql.Driver
     username: postgres
-    password: password
-    hikari:
-      schema: public
+    url: jdbc:postgresql://localhost:5432/fagprove-test
+    password: postgres

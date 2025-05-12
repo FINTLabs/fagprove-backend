@@ -37,14 +37,14 @@ services:
       KAFKA_BROKERCONNECT: kafka:29092
 
   fagprove-database:
-    image: postgres:latest
-    networks:
-      - broker-kafka
-    ports:
-      - 5436:5432
+    image: postgres
+    container_name: postgres_database
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: contracts
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fagprove-test
+    ports:
+      - "5432:5432"
 
 networks:
   broker-kafka:

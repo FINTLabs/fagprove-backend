@@ -18,11 +18,14 @@ import org.springframework.stereotype.Component;
 public class ContractConsumer {
 
     private final EventConsumerFactoryService eventConsumerFactoryService;
+    private final ContractRepository contractRepository;
+    private final MappingService mappingService;
 
-    public ContractConsumer(EventConsumerFactoryService eventConsumerFactoryService) {
+    public ContractConsumer(EventConsumerFactoryService eventConsumerFactoryService, ContractRepository contractRepository, MappingService mappingService) {
         this.eventConsumerFactoryService = eventConsumerFactoryService;
+        this.contractRepository = contractRepository;
+        this.mappingService = mappingService;
     }
-
 
     @Bean
     public ConcurrentMessageListenerContainer<String, AdapterContract> consumeContracts(EventConsumerFactoryService eventConsumerFactoryService) {
@@ -43,6 +46,9 @@ public class ContractConsumer {
 
     private void processEvent(ConsumerRecord<String, AdapterContract> consumerRecord) {
         log.info("Consumer record: {}", consumerRecord.value());
+        AdapterContractEntity mappedToEntity = mappingService.mapToEntity(consumerRecord.value());
+        log.info("Mapped to entity: {}", mappedToEntity.getAdapterId());
+        contractRepository.save(mappedToEntity);
     }
 
 }
