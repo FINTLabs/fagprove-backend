@@ -21,3 +21,9 @@ logging:
     org.apache.kafka: warn
     no.fintlabs.event: debug
     no.fintlabs.page: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus,health,info"

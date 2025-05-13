@@ -24,3 +24,10 @@ spring:
     username: postgres
     url: jdbc:postgresql://localhost:5432/fagprove-test
     password: postgres
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus,health,info"
